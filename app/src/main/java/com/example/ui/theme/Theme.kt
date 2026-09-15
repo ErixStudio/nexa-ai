@@ -1,0 +1,35 @@
+package com.example.ui.theme
+
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.runtime.Composable
+
+private val NexaDarkColorScheme = darkColorScheme(
+    primary = BrandPurple,
+    onPrimary = TextPrimary,
+    primaryContainer = BrandIndigo,
+    onPrimaryContainer = TextPrimary,
+    secondary = BrandCyan,
+    onSecondary = DarkBackground,
+    secondaryContainer = DarkSurfaceVariant,
+    onSecondaryContainer = TextPrimary,
+    tertiary = WarningGold,
+    background = DarkBackground,
+    onBackground = TextPrimary,
+    surface = DarkSurface,
+    onSurface = TextPrimary,
+    surfaceVariant = DarkSurfaceVariant,
+    onSurfaceVariant = TextSecondary,
+    outline = DarkBorder
+)
+
+@Composable
+fun NexaTheme(
+    content: @Composable () -> Unit
+) {
+    MaterialTheme(
+        colorScheme = NexaDarkColorScheme,
+        typography = Typography,
+        content = content
+    )
+}

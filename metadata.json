@@ -1,0 +1,6 @@
+{
+  "name": "NEXA AI",
+  "description": "Smart AI Trading Analysis Assistant for Crypto & Forex with bilingual support, chart pattern recognition, signal generation, Room DB, and subscription plans.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Handle Authorization Header for JWT in PHP
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Route all non-file/non-directory requests to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Block HTTP direct access to sensitive configuration files
+<FilesMatch "^\.env|\.env\.example|schema\.sql|DEPLOYMENT\.md|API_DOCUMENTATION\.md">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Disable Directory Browsing
+Options -Indexes
+
+# PHP Environment & Upload Limits
+php_value upload_max_filesize 32M
+php_value post_max_size 32M
+php_value max_input_time 120
+php_value memory_limit 256M
